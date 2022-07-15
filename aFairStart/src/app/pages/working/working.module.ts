@@ -6,15 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { WorkingPage } from './working.page';
 
 import { WorkingPageRoutingModule } from './working-routing.module';
-import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    WorkingPageRoutingModule,
-    PagesModule
+    WorkingPageRoutingModule
   ],
   declarations: [WorkingPage],
   exports: []

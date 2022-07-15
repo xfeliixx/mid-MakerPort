@@ -1,5 +1,6 @@
 // Angular Modules
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
+import { ImportBooking } from 'src/app/shared/classes/bookings';
 import { QueryStringParameters } from 'src/app/shared/classes/query-string-parameters';
 import { UrlBuilder } from 'src/app/shared/classes/url-builder';
 import { Constants } from '../config/constants';
@@ -76,5 +77,29 @@ export class ApiEndpointsService {
     return this.createUrlWithQueryParameters('devices', (qs: QueryStringParameters) => {
       qs.push('type', deviceType);
     });
+  }
+
+  public postBooking(): string {
+    return this.createUrl('bookings');
+  }
+
+  public getBookingById(id: number): string {
+    return this.createUrlWithPathVariables('bookings', [id]);
+  }
+
+  public getDeviceById(id: number): string {
+    return this.createUrlWithPathVariables('devices', [id]);
+  }
+
+  public putDeviceById(id: number): string {
+    return this.createUrlWithPathVariables('devices', [id]);
+  }
+
+  public getUsersByUsername(username: string) {
+    return this.createUrlWithPathVariables('users', [username]);
+  }
+
+  public putUsersByUsername(username: string) {
+    return this.createUrlWithPathVariables('users', [username]);
   }
 }

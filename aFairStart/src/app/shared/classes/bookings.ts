@@ -8,3 +8,10 @@ export class Bookings {
     scheduledStart: string
     user: string
 }
+
+export class ImportBooking {
+    deviceId: number
+    scheduledStart: string
+    intendedDuration: number
+}
+

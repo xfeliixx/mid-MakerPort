@@ -4,11 +4,11 @@ import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
 import { ApiHttpService } from 'src/core/services/api-http.service';
 
 @Component({
-  selector: 'app-device-detail',
-  templateUrl: './device-detail.component.html',
-  styleUrls: ['./device-detail.component.scss'],
+  selector: 'app-create-booking',
+  templateUrl: './createBooking.html',
+  styleUrls: ['./createBooking.scss'],
 })
-export class DeviceDetailComponent implements OnInit {
+export class CreateBookingComponent implements OnInit {
 
   public deviceDetails;
 

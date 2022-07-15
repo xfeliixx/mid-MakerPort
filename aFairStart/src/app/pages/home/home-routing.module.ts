@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DeviceDetailComponent } from '../working/pages/device-detail/device-detail.component';
 import { HomePage } from './home.page';
 
 const routes: Routes = [
