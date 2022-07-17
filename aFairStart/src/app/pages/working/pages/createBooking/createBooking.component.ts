@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { formatISO } from 'date-fns';
+import { ImportBooking } from 'src/app/shared/classes/bookings';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
 import { ApiHttpService } from 'src/core/services/api-http.service';
 
@@ -31,18 +33,25 @@ export class CreateBookingComponent implements OnInit {
 
   public createBooking() {
     if (this.teamMates.length > 0 && this.timeEstimateHour != null && this.timeEstimateMinutes != null && this.dateFromDatePicker != null) {
-      const javaTimeDateString = this.convertDateFromDatePickerToJavaLocalDate(this.dateFromDatePicker);
-      const timeEstimateInMinutes = this.convertEstimateTimeToMinutes(this.timeEstimateHour, this.timeEstimateMinutes);
+      const date = this.convertDateFromDatePickerToJavaLocalDate(this.dateFromDatePicker);
+      const importBooking = new ImportBooking(0, date, this.convertEstimateTimeToMinutes(this.timeEstimateHour, this.timeEstimateMinutes));
+      console.log(JSON.stringify(importBooking));
+      this.apiHttpService
+        .post(this.apiEndpointsService.postBooking(), JSON.stringify(importBooking))
+        .subscribe(() => console.log('okay'));
     }
+    this.convertDateFromDatePickerToJavaLocalDate(this.dateFromDatePicker);
   }
 
   private convertEstimateTimeToMinutes(hours: number, minutes: number): number {
     return (hours * 60 + minutes);
   }
 
-  private convertDateFromDatePickerToJavaLocalDate(date: string) {
-    var dateFormat = date.split('+')[0];
-    console.log(dateFormat);
+  private convertDateFromDatePickerToJavaLocalDate(date: string): string {
+    date = date.split('+')[0];
+    date += ".000Z";
+    console.log(date + "  " + formatISO(new Date(date)));
+    return date;
   }
 
 }

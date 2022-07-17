@@ -13,5 +13,11 @@ export class ImportBooking {
     deviceId: number
     scheduledStart: string
     intendedDuration: number
+
+    constructor(deviceId: number, scheduledStart: string, intendedDuration: number) {
+        this.deviceId = deviceId;
+        this.scheduledStart = scheduledStart;
+        this.intendedDuration = intendedDuration;
+    }
 }
 

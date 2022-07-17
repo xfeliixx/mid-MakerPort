@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApiHttpService {
 
-  headers = new HttpHeaders().set('Authorization', 'Basic YWRtaW46YWRtaW4=');
+  headers = new HttpHeaders().set('Authorization', 'Basic YWRtaW46YWRtaW4=').set('Content-Type', 'application/json');
   constructor(private http: HttpClient) {
   }
 
