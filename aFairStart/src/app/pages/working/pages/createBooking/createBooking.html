@@ -1,5 +1,75 @@
-<p>
-  device-detail works!
-  {{deviceDetail}}
-  <a routerLink="/working">Next</a>
-</p>
+<div>
+  <a routerLink="/working">Back</a>
+  <ion-accordion-group>
+
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>For What</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item>
+            <ion-radio-group [(ngModel)]="project">
+              <ion-item>
+                <ion-label>Project 1</ion-label>
+                <ion-radio value="Project 1">
+                </ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Project 2</ion-label>
+                <ion-radio value="Project 2"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-item>
+        </ion-list>
+        {{project}}
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Who</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let teamMate of teamMates">
+            <ion-label>{{teamMate}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-button (click)="addTeamMate()">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>How Long</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-input type="number" value="timeEstimate" max="47" min="0" placeholder="timeEstimateHour"
+          [(ngModel)]="timeEstimateHour">
+        </ion-input>
+        <ion-input type="number" value="timeEstimate" max="59" min="0" placeholder="timeEstimateMinutes"
+          [(ngModel)]="timeEstimateMinutes">
+        </ion-input>
+      </div>
+
+    </ion-accordion>
+    <ion-accordion value="fourth">
+      <ion-item slot="header" color="light">
+        <ion-label>When</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-datetime pickerFormat="YYYY MM D HH:mm" [(ngModel)]=" dateFromDatePicker"></ion-datetime>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+  <ion-button (click)="createBooking()">
+    <a routerLink="/working">Book Device</a>
+  </ion-button>
+
+  {{dateFromDatePicker}}
+</div>

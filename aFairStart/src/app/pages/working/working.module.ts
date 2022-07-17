@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { WorkingPage } from './working.page';
 
 import { WorkingPageRoutingModule } from './working-routing.module';
+import { CreateBookingComponent } from './pages/createBooking/createBooking.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { WorkingPageRoutingModule } from './working-routing.module';
     FormsModule,
     WorkingPageRoutingModule
   ],
-  declarations: [WorkingPage],
+  declarations: [WorkingPage, CreateBookingComponent],
   exports: []
 })
 export class WorkingPageModule { }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Devices } from 'src/app/shared/classes/devices';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
 import { ApiHttpService } from 'src/core/services/api-http.service';
 
@@ -10,21 +9,40 @@ import { ApiHttpService } from 'src/core/services/api-http.service';
 })
 export class CreateBookingComponent implements OnInit {
 
-  public deviceDetails;
-
+  project: string;
+  //TODO Beispielname ändern 
+  teamMates: string[] = new Array("Beispielname (Me)");
+  timeEstimateHour: number;
+  timeEstimateMinutes: number;
+  dateFromDatePicker: string;
 
   constructor(private apiHttpService: ApiHttpService,
     private apiEndpointsService: ApiEndpointsService) { }
 
   ngOnInit() {
-    console.log(this.apiEndpointsService.getAllMockUsers());
-    this.apiHttpService
-      .get(this.apiEndpointsService.getAllMockUsers())
-      .subscribe((data: Devices[]) => {
-        this.deviceDetails = data[0].type;
-        console.log(data[0]);
-      });
 
+  }
+
+
+  public addTeamMate() {
+    //TODO
+    console.log('addTeamMate');
+  }
+
+  public createBooking() {
+    if (this.teamMates.length > 0 && this.timeEstimateHour != null && this.timeEstimateMinutes != null && this.dateFromDatePicker != null) {
+      const javaTimeDateString = this.convertDateFromDatePickerToJavaLocalDate(this.dateFromDatePicker);
+      const timeEstimateInMinutes = this.convertEstimateTimeToMinutes(this.timeEstimateHour, this.timeEstimateMinutes);
+    }
+  }
+
+  private convertEstimateTimeToMinutes(hours: number, minutes: number): number {
+    return (hours * 60 + minutes);
+  }
+
+  private convertDateFromDatePickerToJavaLocalDate(date: string) {
+    var dateFormat = date.split('+')[0];
+    console.log(dateFormat);
   }
 
 }
