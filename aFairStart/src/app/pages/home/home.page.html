@@ -1,4 +1,18 @@
 <ion-content [fullscreen]="true">
+  <div *ngIf="(show | async)">
+    <ion-card>
+      <ion-button (click)="signOn()">
+        Unlock
+      </ion-button>
+    </ion-card>
+  </div>
+  <div *ngIf="(isSignedOn | async)">
+    <ion-card>
+      <ion-button (click)="signOff()">
+        Lock
+      </ion-button>
+    </ion-card>
+  </div>
   <ion-toolbar>
     <ion-title size="large">Hey Max</ion-title>
     <ion-buttons slot="end">
@@ -57,4 +71,8 @@
       </ion-item>
     </ion-list>
   </div>
+  <div *ngIf="(hasActiveBooking | async)">
+    <ion-button (click)="showModal()">{{activeBookingStart}} - {{activeBookingEnd}}</ion-button>
+  </div>
+
 </ion-content>

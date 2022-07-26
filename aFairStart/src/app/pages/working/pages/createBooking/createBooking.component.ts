@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { formatISO } from 'date-fns';
 import { ImportBooking } from 'src/app/shared/classes/bookings';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
@@ -18,8 +19,9 @@ export class CreateBookingComponent implements OnInit {
   timeEstimateMinutes: number;
   dateFromDatePicker: string;
 
+
   constructor(private apiHttpService: ApiHttpService,
-    private apiEndpointsService: ApiEndpointsService) { }
+    private apiEndpointsService: ApiEndpointsService, private router: Router) { }
 
   ngOnInit() {
 
@@ -38,9 +40,15 @@ export class CreateBookingComponent implements OnInit {
       console.log(JSON.stringify(importBooking));
       this.apiHttpService
         .post(this.apiEndpointsService.postBooking(), JSON.stringify(importBooking))
-        .subscribe(() => console.log('okay'));
+        .subscribe(
+          (data) => {
+            this.router.navigate(['/working']);
+          },
+          (error) => {
+            if (error.status == '201') { this.router.navigate(['/working']); }
+          });
     }
-    this.convertDateFromDatePickerToJavaLocalDate(this.dateFromDatePicker);
+
   }
 
   private convertEstimateTimeToMinutes(hours: number, minutes: number): number {

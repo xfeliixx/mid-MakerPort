@@ -69,6 +69,8 @@ export class ApiEndpointsService {
     return this.createUrl('devices', true);
   }
 
+
+
   public getAllBookings(): string {
     return this.createUrl('bookings');
   }
@@ -87,6 +89,9 @@ export class ApiEndpointsService {
     return this.createUrlWithPathVariables('bookings', [id]);
   }
 
+  public getCurrentBooking(): string {
+    return this.createUrlWithQueryParameters('bookings', (qs: QueryStringParameters) => qs.push('date', "true"));
+  }
   public getDeviceById(id: number): string {
     return this.createUrlWithPathVariables('devices', [id]);
   }
@@ -101,5 +106,13 @@ export class ApiEndpointsService {
 
   public putUsersByUsername(username: string) {
     return this.createUrlWithPathVariables('users', [username]);
+  }
+
+  public putSignOn(id: number) {
+    return this.createUrlWithPathVariables('bookings', [id]);
+  }
+
+  public putSignOff(id: number) {
+    return this.createUrlWithPathVariables('bookings', [id]);
   }
 }
