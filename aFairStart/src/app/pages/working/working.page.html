@@ -1,85 +1,100 @@
+<!--*** Toolbar *** -->
 <ion-header class="ion-no-border" translucent="true">
   <ion-toolbar>
-    <h1>Working</h1>
+    <h1 class="headText">Working</h1>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <div class="dividerDiv">
-
+    <!--*** Workpsaces *** -->
     <ion-list>
       <ion-list-header>
-        <h2> Workspaces</h2>
+        <h2>Workspaces</h2>
       </ion-list-header>
-      <hr>
+      <hr />
     </ion-list>
-
-        <ion-grid class="hScroll">
-          <ion-row  class="ion-text-nowrap">
-            <ion-col size="6">
-              <ion-card class="card">
-                <img src="../../../assets/components/singleWorkspace.png" />
-                <ion-card-header>
-                </ion-card-header>
-              </ion-card>
-            </ion-col>
-            <ion-col size="6">
-              <ion-card class="card">
-                <img src="../../../assets/components/groupWorkspace.png" />
-                <ion-card-header>
-                </ion-card-header>
-              </ion-card>
-            </ion-col>
-            <ion-col size="6">
-              <ion-card class="card">
-                <img src="../../../assets/components/meetingRoom.png" />
-                <ion-card-header>
-                </ion-card-header>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-
-
-    <ion-list>
-      <ion-list-header>
-        <h2> Equipment</h2>
-      </ion-list-header>
-      <hr>
-    </ion-list>
-
-
-    <div>
-      <!-- Filter chips-->
-    </div>
-
-
-    <ion-grid>
-      <ion-row>
+    <!-- Cards -->
+    <ion-grid class="cards" id="#workspaceCards">
+      <ion-row class="ion-text-nowrap ion-nowrap">
         <ion-col size="6">
-          <ion-card class="card">
-            <a routerLink="/working/createBooking"> <img src="../../../assets/components/fdmPrinter.png" /></a>
-            <ion-card-header>
-            </ion-card-header>
+          <ion-card>
+            <img src="../../../assets/components/singleWorkspace.png" />
           </ion-card>
         </ion-col>
         <ion-col size="6">
-          <ion-card class="card">
-            <img src="../../../assets/components/slaPrinter.png" />
-            <ion-card-header>
-            </ion-card-header>
+          <ion-card>
+            <img src="../../../assets/components/groupWorkspace.png" />
           </ion-card>
         </ion-col>
         <ion-col size="6">
-          <ion-card class="card">
-            <img src="../../../assets/components/slsPrinter.png" />
-            <ion-card-header>
-            </ion-card-header>
+          <ion-card>
+            <img src="../../../assets/components/meetingRoom.png" />
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
 
+    <!--*** Equipment ***-->
+    <ion-list>
+      <ion-list-header>
+        <h2>Equipment</h2>
+      </ion-list-header>
+      <hr />
+    </ion-list>
+
+    <!-- Chips -->
+    <div class="infoChips">
+      <ion-chip>
+        <h3>All</h3>
+      </ion-chip>
+
+      <ion-chip id="selectedChip">
+        <h3>3D Print</h3>
+      </ion-chip>
+
+      <ion-chip>
+        <h3>Woodwork</h3>
+      </ion-chip>
+
+      <ion-chip>
+        <h3>Laser Cutting</h3>
+      </ion-chip>
+
+      <ion-chip>
+        <h3>Metalwork</h3>
+      </ion-chip>
+
+      <ion-chip>
+        <h3>Laser cutting</h3>
+      </ion-chip>
+
+      <ion-chip>
+        <h3>Surface finishing</h3>
+      </ion-chip>
+    </div>
+
+    <!-- Cards -->
+    <ion-grid class="cards">
+      <ion-row>
+        <ion-col size="6">
+          <ion-card>
+            <a routerLink="/working/createBooking">
+              <img src="../../../assets/components/fdmPrinter.png"
+            /></a>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card>
+            <img src="../../../assets/components/slaPrinter.png" />
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card>
+            <img src="../../../assets/components/slsPrinter.png" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

@@ -1,55 +1,57 @@
+<!--*** Toolbar *** -->
 <ion-header class="ion-no-border" translucent="true">
   <ion-toolbar>
-    <ion-buttons class="statusIcon" slot="end"><span class="material-icons-outlined"> inbox </span></ion-buttons>
-    <h1>Hey Max</h1>
+    <ion-buttons class="statusIcon" slot="end"
+      ><span class="material-icons-outlined"> inbox </span></ion-buttons
+    >
+    <h1 class="headText">Hey Max</h1>
   </ion-toolbar>
 </ion-header>
 
+<!--*** Unlock Key *** -->
 <ion-content [fullscreen]="true">
   <div *ngIf="(show | async)">
     <ion-card>
-      <ion-button (click)="signOn()">
-        Unlock
-      </ion-button>
+      <ion-button (click)="signOn()"> Unlock </ion-button>
     </ion-card>
   </div>
   <div *ngIf="(isSignedOn | async)">
     <ion-card>
-      <ion-button (click)="signOff()">
-        Lock
-      </ion-button>
+      <ion-button (click)="signOff()"> Lock </ion-button>
     </ion-card>
   </div>
 
   <div class="dividerDiv">
-
+    <!--*** The Lab *** -->
     <ion-list>
       <ion-list-header>
-        <h2> The Lab</h2>
+        <h2>The Lab</h2>
       </ion-list-header>
-      <hr>
+      <hr />
 
+      <!-- utilisation -->
       <ion-item class="imgComp" lines="none">
         <img src="../../../assets/components/utilisation.png" />
       </ion-item>
     </ion-list>
 
-
+    <!-- open door button -->
     <div id="openDoor">
-      <button class="mainButton">
+      <ion-button expand="block">
         <span class="material-icons-outlined iconSmall"> vpn_key </span>
-        <h3> Open lab door</h3>
-      </button>
+        <h3>Open lab door</h3>
+      </ion-button>
     </div>
 
+    <!--*** Next Bookings *** -->
     <ion-list>
       <ion-list-header>
-        <h2> Next Bookings</h2>
+        <h2>Next Bookings</h2>
         <div slot="end">
-          <h3> Show all</h3>
+          <h3>Show all</h3>
         </div>
       </ion-list-header>
-      <hr>
+      <hr />
 
       <ion-item lines="inset">
         <ion-avatar slot="start">
@@ -59,7 +61,9 @@
           <h3>Group table</h3>
         </ion-label>
         <ion-label slot="end">
-          <h3>Today <span class="material-icons-outlined">arrow_forward_ios</span></h3>
+          <h3>
+            Today <span class="material-icons-outlined">arrow_forward_ios</span>
+          </h3>
         </ion-label>
       </ion-item>
 
@@ -71,7 +75,10 @@
           <h3>Prusa i3 MK3S+</h3>
         </ion-label>
         <ion-label slot="end">
-          <h3>21.8.22 <span class="material-icons-outlined">arrow_forward_ios</span></h3>
+          <h3>
+            21.8.22
+            <span class="material-icons-outlined">arrow_forward_ios</span>
+          </h3>
         </ion-label>
       </ion-item>
 
@@ -83,16 +90,20 @@
           <h3>Single workspace</h3>
         </ion-label>
         <ion-label slot="end">
-          <h3>24.8.22 <span class="material-icons-outlined">arrow_forward_ios</span></h3>
+          <h3>
+            24.8.22
+            <span class="material-icons-outlined">arrow_forward_ios</span>
+          </h3>
         </ion-label>
       </ion-item>
     </ion-list>
 
+    <!--*** Support *** -->
     <ion-list>
       <ion-list-header>
         <h2>Support</h2>
       </ion-list-header>
-      <hr>
+      <hr />
 
       <ion-item lines="inset">
         <ion-avatar slot="start">
@@ -131,8 +142,11 @@
       </ion-item>
     </ion-list>
   </div>
-  <div *ngIf="(hasActiveBooking | async)">
-    <ion-button (click)="showModal()">{{activeBookingStart}} - {{activeBookingEnd}}</ion-button>
-  </div>
 
+  <!--*** Player *** -->
+  <div *ngIf="(hasActiveBooking | async)">
+    <ion-button (click)="showModal()"
+      >{{activeBookingStart}} - {{activeBookingEnd}}</ion-button
+    >
+  </div>
 </ion-content>

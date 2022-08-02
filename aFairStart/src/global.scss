@@ -30,3 +30,9 @@
 
 /*Icon Pack*/
 @import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp");
+
+//Only Font that is not Google Fonts
+@font-face {
+  font-family: "InconsolataExpandedBlack";
+  src: url("/assets/fonts/Inconsolata-ExpandedBlack.ttf");
+}

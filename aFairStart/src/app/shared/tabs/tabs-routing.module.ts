@@ -8,18 +8,25 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: '',
+        loadChildren: () =>
+          import('../../pages/home/home.module').then((m) => m.HomePageModule),
+      },
+      {
         path: 'home',
-        loadChildren: () => import('../../pages/home/home.module').then(m => m.HomePageModule)
+        loadChildren: () =>
+          import('../../pages/home/home.module').then((m) => m.HomePageModule),
       },
       {
         path: 'working',
-        loadChildren: () => import('../../pages/working/working.module').then(m => m.WorkingPageModule)
+        loadChildren: () =>
+          import('../../pages/working/working.module').then( (m) => m.WorkingPageModule),
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule { }
+export class TabsPageRoutingModule {}
