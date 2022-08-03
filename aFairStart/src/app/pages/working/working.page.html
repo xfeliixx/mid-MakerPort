@@ -1,16 +1,16 @@
-<!--*** Toolbar *** -->
+<!--*** Head *** -->
 <ion-header class="ion-no-border" translucent="true">
   <ion-toolbar>
-    <h1 class="headText">Working</h1>
+    <h1>Working</h1>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="dividerDiv">
+  <div class="section">
     <!--*** Workpsaces *** -->
     <ion-list>
       <ion-list-header>
-        <h2>Workspaces</h2>
+        <h3>Workspaces</h3>
       </ion-list-header>
       <hr />
     </ion-list>
@@ -38,7 +38,7 @@
     <!--*** Equipment ***-->
     <ion-list>
       <ion-list-header>
-        <h2>Equipment</h2>
+        <h3>Equipment</h3>
       </ion-list-header>
       <hr />
     </ion-list>
@@ -46,31 +46,31 @@
     <!-- Chips -->
     <div class="infoChips">
       <ion-chip>
-        <h3>All</h3>
+        <h4>All</h4>
       </ion-chip>
 
       <ion-chip id="selectedChip">
-        <h3>3D Print</h3>
+        <h4>3D Print</h4>
       </ion-chip>
 
       <ion-chip>
-        <h3>Woodwork</h3>
+        <h4>Woodwork</h4>
       </ion-chip>
 
       <ion-chip>
-        <h3>Laser Cutting</h3>
+        <h4>Laser Cutting</h4>
       </ion-chip>
 
       <ion-chip>
-        <h3>Metalwork</h3>
+        <h4>Metalwork</h4>
       </ion-chip>
 
       <ion-chip>
-        <h3>Laser cutting</h3>
+        <h4>Laser cutting</h4>
       </ion-chip>
 
       <ion-chip>
-        <h3>Surface finishing</h3>
+        <h4>Bio Lab</h4>
       </ion-chip>
     </div>
 
@@ -79,7 +79,7 @@
       <ion-row>
         <ion-col size="6">
           <ion-card>
-            <a routerLink="/working/createBooking">
+            <a routerLink="/working/deviceDetail">
               <img src="../../../assets/components/fdmPrinter.png"
             /></a>
           </ion-card>

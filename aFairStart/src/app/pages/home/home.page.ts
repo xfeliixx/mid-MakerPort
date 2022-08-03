@@ -7,18 +7,22 @@ import { ApiHttpService } from 'src/core/services/api-http.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  hasActiveBooking: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  hasActiveBooking: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
   activeBooking;
   activeBookingStart;
   activeBookingEnd;
   show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSignedOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private apiHttpService: ApiHttpService,
-    private apiEndpointsService: ApiEndpointsService) { }
+  constructor(
+    private apiHttpService: ApiHttpService,
+    private apiEndpointsService: ApiEndpointsService
+  ) {}
 
   ngOnInit(): void {
     this.apiHttpService
@@ -26,8 +30,12 @@ export class HomePage implements OnInit {
       .subscribe(
         (data) => {
           this.activeBooking = JSON.parse(JSON.stringify(data[0]));
-          this.activeBookingStart = this.splitTimeHHMM(this.activeBooking.scheduledStart);
-          this.activeBookingEnd = this.splitTimeHHMM(this.activeBooking.scheduledEnd);
+          this.activeBookingStart = this.splitTimeHHMM(
+            this.activeBooking.scheduledStart
+          );
+          this.activeBookingEnd = this.splitTimeHHMM(
+            this.activeBooking.scheduledEnd
+          );
           if (this.activeBooking == null || this.activeBooking == undefined) {
             this.hasActiveBooking = new BehaviorSubject<boolean>(false);
           } else if (this.activeBooking.done == false) {
@@ -35,8 +43,9 @@ export class HomePage implements OnInit {
           }
         },
         (error) => {
-          console.log("Errr: " + error.status);
-        });
+          console.log('Errr: ' + error.status);
+        }
+      );
   }
 
   private splitTimeHHMM(date: string): string {
@@ -53,7 +62,10 @@ export class HomePage implements OnInit {
 
   public signOn() {
     this.apiHttpService
-      .put(this.apiEndpointsService.putSignOn(this.activeBooking.id) + '/signOn', null)
+      .put(
+        this.apiEndpointsService.putSignOn(this.activeBooking.id) + '/signOn',
+        null
+      )
       .subscribe(
         (data) => {
           this.isSignedOn = new BehaviorSubject<boolean>(true);
@@ -62,12 +74,15 @@ export class HomePage implements OnInit {
         (error) => {
           console.log(error.status);
         }
-      )
+      );
   }
 
   public signOff() {
     this.apiHttpService
-      .put(this.apiEndpointsService.putSignOff(this.activeBooking.id) + '/signOff', null)
+      .put(
+        this.apiEndpointsService.putSignOff(this.activeBooking.id) + '/signOff',
+        null
+      )
       .subscribe(
         (data) => {
           this.isSignedOn = new BehaviorSubject<boolean>(false);
@@ -75,8 +90,6 @@ export class HomePage implements OnInit {
         (error) => {
           console.log(error.status);
         }
-      )
+      );
   }
-
-
 }
