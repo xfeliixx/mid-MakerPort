@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'aFairStart',
+  appId: 'com.felixmedia.makerPort',
+  appName: 'MakerPort',
   webDir: 'www',
   bundledWebRuntime: false
 };
