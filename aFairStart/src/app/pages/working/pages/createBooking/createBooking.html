@@ -1,7 +1,12 @@
-<div>
-  <a routerLink="/working">Back</a>
-  <ion-accordion-group>
+<!--*** Head *** -->
+<ion-header translucent="true">
+  <ion-toolbar> </ion-toolbar>
+</ion-header>
 
+<ion-content [fullscreen]="true">
+  <a routerLink="/working" routerDirection="back">Back</a>
+
+  <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>For What</ion-label>
@@ -12,8 +17,7 @@
             <ion-radio-group [(ngModel)]="project">
               <ion-item>
                 <ion-label>Project 1</ion-label>
-                <ion-radio value="Project 1">
-                </ion-radio>
+                <ion-radio value="Project 1"> </ion-radio>
               </ion-item>
               <ion-item>
                 <ion-label>Project 2</ion-label>
@@ -49,25 +53,39 @@
         <ion-label>How Long</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        <ion-input type="number" value="timeEstimate" max="47" min="0" placeholder="timeEstimateHour"
-          [(ngModel)]="timeEstimateHour">
+        <ion-input
+          type="number"
+          value="timeEstimate"
+          max="47"
+          min="0"
+          placeholder="timeEstimateHour"
+          [(ngModel)]="timeEstimateHour"
+        >
         </ion-input>
-        <ion-input type="number" value="timeEstimate" max="59" min="0" placeholder="timeEstimateMinutes"
-          [(ngModel)]="timeEstimateMinutes">
+        <ion-input
+          type="number"
+          value="timeEstimate"
+          max="59"
+          min="0"
+          placeholder="timeEstimateMinutes"
+          [(ngModel)]="timeEstimateMinutes"
+        >
         </ion-input>
       </div>
-
     </ion-accordion>
     <ion-accordion value="fourth">
       <ion-item slot="header" color="light">
         <ion-label>When</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        <ion-datetime pickerFormat="YYYY MM D HH:mm" [(ngModel)]=" dateFromDatePicker"></ion-datetime>
+        <ion-datetime
+          pickerFormat="YYYY MM D HH:mm"
+          [(ngModel)]=" dateFromDatePicker"
+        ></ion-datetime>
       </div>
     </ion-accordion>
   </ion-accordion-group>
   <ion-button (click)="createBooking()">
     <a>Book Device</a>
   </ion-button>
-</div>
+</ion-content>

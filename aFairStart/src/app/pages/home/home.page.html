@@ -1,10 +1,10 @@
-<!--*** Toolbar *** -->
+<!--*** Head *** -->
 <ion-header class="ion-no-border" translucent="true">
   <ion-toolbar>
     <ion-buttons class="statusIcon" slot="end"
       ><span class="material-icons-outlined"> inbox </span></ion-buttons
     >
-    <h1 class="headText">Hey Max</h1>
+    <h1>Hey Max</h1>
   </ion-toolbar>
 </ion-header>
 
@@ -21,11 +21,11 @@
     </ion-card>
   </div>
 
-  <div class="dividerDiv">
+  <div class="section">
     <!--*** The Lab *** -->
     <ion-list>
       <ion-list-header>
-        <h2>The Lab</h2>
+        <h3>The Lab</h3>
       </ion-list-header>
       <hr />
 
@@ -37,16 +37,16 @@
 
     <!-- open door button -->
     <div id="openDoor">
-      <ion-button expand="block">
+      <ion-button expand="block" class="button">
         <span class="material-icons-outlined iconSmall"> vpn_key </span>
-        <h3>Open lab door</h3>
+        <h4>Open lab door</h4>
       </ion-button>
     </div>
 
     <!--*** Next Bookings *** -->
     <ion-list>
       <ion-list-header>
-        <h2>Next Bookings</h2>
+        <h3>Next Bookings</h3>
         <div slot="end">
           <h3>Show all</h3>
         </div>
@@ -55,30 +55,27 @@
 
       <ion-item lines="inset">
         <ion-avatar slot="start">
-          <span class="material-icons-outlined"> group </span>
+          <span class="material-icons-outlined"> brush </span>
         </ion-avatar>
         <ion-label>
-          <h3>Group table</h3>
+          <h4>Prusa i3 MK3S+</h4>
         </ion-label>
         <ion-label slot="end">
-          <h3>
-            Today <span class="material-icons-outlined">arrow_forward_ios</span>
-          </h3>
+          <h4>Today</h4>
+          <span class="material-icons-outlined">arrow_forward_ios</span>
         </ion-label>
       </ion-item>
 
       <ion-item lines="inset">
         <ion-avatar slot="start">
-          <span class="material-icons-outlined"> brush </span>
+          <span class="material-icons-outlined"> group </span>
         </ion-avatar>
         <ion-label>
-          <h3>Prusa i3 MK3S+</h3>
+          <h4>Group table</h4>
         </ion-label>
         <ion-label slot="end">
-          <h3>
-            21.8.22
-            <span class="material-icons-outlined">arrow_forward_ios</span>
-          </h3>
+          <h4>21.8.22</h4>
+          <span class="material-icons-outlined">arrow_forward_ios</span>
         </ion-label>
       </ion-item>
 
@@ -87,13 +84,11 @@
           <span class="material-icons-outlined"> weekend </span>
         </ion-avatar>
         <ion-label>
-          <h3>Single workspace</h3>
+          <h4>Single workspace</h4>
         </ion-label>
         <ion-label slot="end">
-          <h3>
-            24.8.22
-            <span class="material-icons-outlined">arrow_forward_ios</span>
-          </h3>
+          <h4>24.8.22</h4>
+          <span class="material-icons-outlined">arrow_forward_ios</span>
         </ion-label>
       </ion-item>
     </ion-list>
@@ -101,7 +96,7 @@
     <!--*** Support *** -->
     <ion-list>
       <ion-list-header>
-        <h2>Support</h2>
+        <h3>Support</h3>
       </ion-list-header>
       <hr />
 
@@ -110,7 +105,7 @@
           <span class="material-icons-outlined"> info </span>
         </ion-avatar>
         <ion-label>
-          <h3>Lab information</h3>
+          <h4>Lab information</h4>
         </ion-label>
         <ion-label slot="end">
           <span class="material-icons-outlined">arrow_forward_ios</span>
@@ -122,7 +117,7 @@
           <span class="material-icons-outlined"> group </span>
         </ion-avatar>
         <ion-label>
-          <h3>inPerson support</h3>
+          <h4>inPerson support</h4>
         </ion-label>
         <ion-label slot="end">
           <span class="material-icons-outlined">arrow_forward_ios</span>
@@ -134,7 +129,7 @@
           <span class="material-icons-outlined"> question_mark </span>
         </ion-avatar>
         <ion-label>
-          <h3>FAQ</h3>
+          <h4>FAQ</h4>
         </ion-label>
         <ion-label slot="end">
           <span class="material-icons-outlined">arrow_forward_ios</span>

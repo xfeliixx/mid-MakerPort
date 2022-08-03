@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateBookingComponent } from './pages/createBooking/createBooking.component';
 import { WorkingPage } from './working.page';
+import { DeviceDetailComponent } from './pages/device-detail/device-detail.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'createBooking',
-    component: CreateBookingComponent
-  }
+    component: CreateBookingComponent,
+  },
+  {
+    path: 'deviceDetail',
+    component: DeviceDetailComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WorkingPageRoutingModule { }
+export class WorkingPageRoutingModule {}

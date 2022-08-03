@@ -1,38 +1,72 @@
-//Fonts
+// *** Fonts ***
+
+// H1
 h1 {
   font-family: InconsolataExpandedBlack !important;
   font-size: 40px !important;
   font-weight: 900 !important;
+  line-height: 40px;
 }
-
 h2 {
+  font-size: 21px !important;
+  font-weight: 900 !important;
+  line-height: 20px;
+}
+// h3
+h3 {
   font-size: 17px !important;
   font-weight: 900 !important;
+  line-height: 20px;
 }
 
-h3 {
+// Text Lists
+h4 {
   font-size: 13px !important;
   font-weight: 800 !important;
+  line-height: 20px;
 }
 
+// Text
 p {
   font-size: 13px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
+  color: var(--ion-color-p);
+  line-height: 23px;
 }
 
-.headText {
-  margin-left: 16px;
+// Text Navigation
+h6 {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 23px;
 }
-//Toolbar
+
+// *** Head ***
+
+ion-toolbar {
+  --background: var(--ion-color-background);
+  h1 {
+    margin-left: 16px;
+  }
+}
+// Toolbar
 ion-toolbar {
   --background-color: transparent;
   --ion-color-base: transparent !important;
 }
 
-//Divider List
+.statusIcon {
+  padding: 10px 20px 5px 20px;
+}
 
-.dividerDiv {
-  margin-right: 16px;
+// ***  Site Section ***
+
+.section {
+  margin: 0 16px 0 16px;
+  ion-list {
+    margin-left: -16px;
+    padding: 0;
+  }
 
   hr {
     border-top: 1px solid var(--ion-color-text);
@@ -40,35 +74,40 @@ ion-toolbar {
   }
 }
 
-// Components
+// *** Components ***
+// Button
+.button {
+  font-family: InconsolataExpandedBlack !important;
+  --border-radius: 6px;
+}
+
+// Open Door
 #openDoor {
   ion-button {
-    font-family: InconsolataExpandedBlack !important;
-    background-color: var(--ion-color-primary);
-    color: var(--ion-color-text-contrast);
-    border-radius: 6px;
     margin: 20px 6px 10px 6px;
-    h3 {
+    h4 {
       padding-left: 10px;
     }
   }
 }
 
+// Image Component
 .imgComp {
   padding-top: 16px;
   margin: 0;
 }
 
+//Cards Components
 #workspaceCards {
   ion-card {
-    margin: 0 8px 8px 0 !important;
+    margin: 0 8px 8px 0;
   }
 }
 .cards {
   ion-card {
-    box-shadow: none !important;
-    margin: 0 22px 22px 0 !important;
-    width: 168px !important;
+    box-shadow: none;
+    margin: 0 22px 22px 0;
+    width: 168px;
     display: inline-block;
 
     img {
@@ -78,6 +117,14 @@ ion-toolbar {
   }
 }
 
+// Lists
+ion-label {
+  h4 {
+    display: inline-block;
+    margin-right: 8px !important;
+  }
+}
+// Filter Chips
 .infoChips {
   margin-top: 16px;
   ion-chip {
@@ -93,23 +140,42 @@ ion-toolbar {
   background: var(--ion-color-primary);
 }
 
-//misc
-
-.textLight {
-  color: var(--ion-color-light);
+// Item head
+.itemHead {
+  h2 {
+    margin-top: 0px;
+  }
+  h6 {
+    margin-bottom: 0px;
+  }
+  img {
+    width: 358px;
+    height: 228px;
+    padding-top: 16px;
+  }
 }
 
-.textFull {
-  color: var(--ion-color-text);
+// Accordions
+ion-accordion {
+  .h4 {
+    padding-bottom: 3px;
+  }
+  p {
+    padding: 0 16px 16px 32px;
+  }
+}
+.arc {
+  padding: 0 !important;
+}
+// Book Bar
+.bottomBar {
+  h6 {
+    margin: 0 16px 16px 16px;
+  }
+  //Shadow fehlt
 }
 
-.statusIcon {
-  padding: 10px 20px 5px 20px;
-}
-
-.iconSmall {
-}
-
+// *** FontFamily + Color ***
 :root {
   --ion-font-family: "Inconsolata", monospace;
 
@@ -164,6 +230,13 @@ ion-toolbar {
 
   --ion-color-background: #ffffff;
   --ion-color-backComponents: #f4f4f4;
+
+  --ion-color-p: #747474;
+  --ion-color-p-rgb: 116, 116, 116;
+  --ion-color-p-contrast: #ffffff;
+  --ion-color-p-contrast-rgb: 255, 255, 255;
+  --ion-color-p-shade: #666666;
+  --ion-color-p-tint: #828282;
 
   --ion-color-text: #2f2f2f;
   --ion-color-text-rgb: 47, 47, 47;
