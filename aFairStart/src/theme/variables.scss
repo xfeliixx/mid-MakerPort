@@ -154,6 +154,20 @@ ion-label {
     padding-top: 16px;
   }
 }
+.itemDetailHead {
+  margin-bottom: 32px;
+  h2 {
+    margin: 0 0 0 15px;
+  }
+  h6 {
+    margin-left: 15px;
+    margin-bottom: 0px;
+  }
+  img {
+    width: 77px;
+    height: 70px;
+  }
+}
 
 // Accordions
 ion-accordion {
@@ -173,6 +187,33 @@ ion-accordion {
     margin: 0 16px 16px 16px;
   }
   //Shadow fehlt
+}
+
+//Detail Selector
+.DetailSelector {
+  margin-bottom: 32px;
+  ion-accordion {
+    background: var(--ion-color-backcomponents);
+  }
+  ion-label {
+    display: inline-block;
+  }
+  .addTeamMate {
+    color: var(--ion-color-primary);
+  }
+}
+.selectedProject {
+  margin-left: 10px; //Not working
+}
+
+.inline {
+  display: inline-block;
+}
+
+ion-datetime {
+  padding: 20px;
+  margin: 0px;
+  --background: var(--ion-color-background);
 }
 
 // *** FontFamily + Color ***

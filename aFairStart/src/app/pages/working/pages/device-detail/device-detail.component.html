@@ -1,4 +1,9 @@
-<ion-content>
+<!--*** Head *** -->
+<ion-header class="ion-no-border" translucent="true">
+  <ion-toolbar> </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
   <div class="section">
     <!--- *** itemHead *** -->
     <div class="itemHead">
@@ -172,32 +177,31 @@
         </div>
       </ion-accordion>
     </ion-accordion-group>
+  </div>
 
-    <!-- Book Bar -->
+  <!-- Book Bar -->
+  <div class="bottomBar">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a routerLink="/working/">
+            <ion-button class="button" fill="outline" expand="block">
+              <h4>Close</h4>
+            </ion-button>
+          </a>
+        </ion-col>
+        <ion-col>
+          <a routerLink="/working/createBooking">
+            <ion-button class="button" expand="block">
+              <h4>Book</h4>
+            </ion-button>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h6>
+      By booking the workspace you agree to use everything carefully as well as
+      our general <span class="link">Terms of Service.</span>
+    </h6>
   </div>
 </ion-content>
-
-<div class="bottomBar">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <a routerLink="/working/">
-          <ion-button class="button" fill="outline" expand="block">
-            <h3>Close</h3>
-          </ion-button>
-        </a>
-      </ion-col>
-      <ion-col>
-        <a routerLink="/working/createBooking">
-          <ion-button class="button" expand="block">
-            <h3>Book</h3>
-          </ion-button>
-        </a>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <h6>
-    By booking the workspace you agree to use everything carefully as well as
-    our general <span class="link">Terms of Service.</span>
-  </h6>
-</div>
