@@ -26,13 +26,15 @@
       </ion-grid>
     </div>
 
+    <!-- Where -->
+
     <ion-accordion-group class="DetailSelector">
       <ion-accordion value="first">
         <ion-item slot="header" lines="none">
           <ion-label>
-            <span class="material-icons-outlined"> tag </span>
+            <span id="frontIcon" class="material-icons-outlined"> tag </span>
             <h4>For what are you booking?</h4>
-            <h4 class="selectedProject">{{project}}</h4>
+            <h4 class="selected">{{project}}</h4>
           </ion-label>
           <ion-label slot="end">
             <span class="material-icons-outlined ion-accordion-toggle-icon"
@@ -65,13 +67,15 @@
       </ion-accordion>
     </ion-accordion-group>
 
+    <!-- Who -->
+
     <ion-accordion-group class="DetailSelector">
       <ion-accordion value="second">
         <ion-item slot="header" lines="none">
           <ion-label>
-            <span class="material-icons-outlined"> person </span>
+            <span id="frontIcon" class="material-icons-outlined"> person </span>
             <h4>Who are you working with?</h4>
-            <h4 class="selectedProject">{{teamMate}}</h4>
+            <h4 class="selected"></h4>
             <!-- teamMate.count needs to be implenmented -->
           </ion-label>
           <ion-label slot="end">
@@ -82,26 +86,27 @@
         </ion-item>
         <div slot="content">
           <ion-list>
-            <ion-radio-group [(ngModel)]="project">
+            <ion-radio-group>
               <ion-item>
                 <h4>Max Muster (Me)</h4>
-                <ion-radio mode="md" slot="end" value="Max Muster"> </ion-radio>
+                <ion-radio mode="md" slot="end" value="me"> </ion-radio>
               </ion-item>
               <ion-item *ngFor="let teamMate of teamMates">
                 <h4>{{teamMate}}</h4>
-                <ion-radio mode="md" slot="end" value="Max Muster"> </ion-radio>
+                <ion-radio mode="md" slot="end" value="2"> </ion-radio>
               </ion-item>
               <ion-item>
                 <div class="addTeamMate" (click)="addTeamMate()">
-                  <span
-                    class="
-                      inline
-                      material-icons-outlined
-                      ion-accordion-toggle-icon
-                    "
-                    >add
-                  </span>
-                  <h4 class="inline">Add team mate</h4>
+                  <h4 class="inline">
+                    <span
+                      class="
+                        inline
+                        material-icons-outlined
+                        ion-accordion-toggle-icon
+                      "
+                      >add </span
+                    >Add team mate
+                  </h4>
                 </div>
               </ion-item>
             </ion-radio-group>
@@ -110,11 +115,15 @@
       </ion-accordion>
     </ion-accordion-group>
 
+    <!-- How Long -->
+
     <ion-accordion-group class="DetailSelector">
       <ion-accordion value="thrid">
         <ion-item slot="header" lines="none">
           <ion-label>
-            <span class="material-icons-outlined"> schedule </span>
+            <span id="frontIcon" class="material-icons-outlined">
+              schedule
+            </span>
             <h4>How long are you planning to work?</h4>
           </ion-label>
           <ion-label slot="end">
@@ -134,19 +143,17 @@
                 </p>
               </ion-item>
               <ion-item>
-                <div class="link">
+                <div class="calculate">
                   <h4 class="inline">How calculate an estimated time?</h4>
                   <span
-                    class="
-                      inline
-                      material-icons-outlined
-                      ion-accordion-toggle-icon
-                    "
+                    id="callMode"
+                    class="material-icons-outlined ion-accordion-toggle-icon"
                     >call_made
                   </span>
                 </div>
               </ion-item>
               <ion-item>
+                <ion-label><h2>h</h2></ion-label>
                 <ion-input
                   type="number"
                   value="timeEstimate"
@@ -154,8 +161,9 @@
                   min="0"
                   placeholder="00"
                   [(ngModel)]="timeEstimateHour"
-                  ><p>h</p>
+                >
                 </ion-input>
+                <ion-label><h2>min</h2></ion-label>
                 <ion-input
                   type="number"
                   value="timeEstimate"
@@ -164,7 +172,6 @@
                   placeholder="00"
                   [(ngModel)]="timeEstimateMinutes"
                 >
-                  <p>min</p>
                 </ion-input>
               </ion-item>
               <p>+ 15 min for cleaning</p>
@@ -174,11 +181,15 @@
       </ion-accordion>
     </ion-accordion-group>
 
+    <!-- When -->
+
     <ion-accordion-group class="DetailSelector">
       <ion-accordion value="forth">
         <ion-item slot="header" lines="none">
           <ion-label>
-            <span class="material-icons-outlined"> calendar_today </span>
+            <span id="frontIcon" class="material-icons-outlined">
+              calendar_today
+            </span>
             <h4>When do you want to work?</h4>
           </ion-label>
           <ion-label slot="end">

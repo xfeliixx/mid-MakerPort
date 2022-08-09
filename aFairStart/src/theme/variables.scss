@@ -173,6 +173,7 @@ ion-label {
 ion-accordion {
   .h4 {
     padding-bottom: 3px;
+    padding-left: 10px;
   }
   p {
     padding: 0 16px 16px 32px;
@@ -198,22 +199,35 @@ ion-accordion {
   ion-label {
     display: inline-block;
   }
+
   .addTeamMate {
     color: var(--ion-color-primary);
   }
+  .calculate {
+    margin: 16px 0 35px 0;
+    h4 {
+      margin: 0;
+    }
+  }
+  #callMode {
+    margin-left: 10px;
+  }
+  ion-datetime {
+    padding: 20px;
+    margin: 0px;
+    --background: var(--ion-color-background);
+  }
+  .selected {
+    margin: 0 0 0 25px !important;
+  }
 }
-.selectedProject {
-  margin-left: 10px; //Not working
+
+#frontIcon {
+  margin-right: 10px;
 }
 
 .inline {
   display: inline-block;
-}
-
-ion-datetime {
-  padding: 20px;
-  margin: 0px;
-  --background: var(--ion-color-background);
 }
 
 // *** FontFamily + Color ***
