@@ -7,6 +7,7 @@ import { WorkingPage } from './working.page';
 
 import { WorkingPageRoutingModule } from './working-routing.module';
 import { CreateBookingComponent } from './pages/createBooking/createBooking.component';
+import { DeviceDetailComponent } from './pages/device-detail/device-detail.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { CreateBookingComponent } from './pages/createBooking/createBooking.comp
     FormsModule,
     WorkingPageRoutingModule
   ],
-  declarations: [WorkingPage, CreateBookingComponent],
+  declarations: [WorkingPage, CreateBookingComponent, DeviceDetailComponent],
   exports: []
 })
 export class WorkingPageModule { }
