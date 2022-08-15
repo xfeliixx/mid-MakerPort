@@ -50,11 +50,11 @@
                 <ion-radio mode="md" slot="end" value="Pakka"> </ion-radio>
               </ion-item>
               <ion-item>
-                <h4>EraPods</h4>
+                <h4>Acme</h4>
                 <ion-radio mode="md" slot="end" value="EraPods"></ion-radio>
               </ion-item>
               <ion-item>
-                <h4>TeaFlow</h4>
+                <h4>TerraFlow</h4>
                 <ion-radio mode="md" slot="end" value="TeaFlow"></ion-radio>
               </ion-item>
               <ion-item>
@@ -212,53 +212,6 @@
         </ion-item>
       </ion-accordion>
     </ion-accordion-group>
-
-    <!-- OLD --->
-    <!--
-
-    <ion-accordion-group class="DetailSelector">
-      <ion-accordion value="third">
-        <ion-item slot="header" color="light">
-          <ion-label>How Long</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-input
-            type="number"
-            value="timeEstimate"
-            max="47"
-            min="0"
-            placeholder="timeEstimateHour"
-            [(ngModel)]="timeEstimateHour"
-          >
-          </ion-input>
-          <ion-input
-            type="number"
-            value="timeEstimate"
-            max="59"
-            min="0"
-            placeholder="timeEstimateMinutes"
-            [(ngModel)]="timeEstimateMinutes"
-          >
-          </ion-input>
-        </div>
-      </ion-accordion>
-
-      <ion-accordion value="fourth">
-        <ion-item slot="header" color="light">
-          <ion-label>When</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-datetime
-            pickerFormat="YYYY MM D HH:mm"
-            [(ngModel)]=" dateFromDatePicker"
-          ></ion-datetime>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-    <ion-button (click)="createBooking()">
-      <a>Book Device</a>
-    </ion-button>
-
 
     <!-- Book Bar -->
 
