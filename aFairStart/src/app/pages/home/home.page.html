@@ -8,19 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<!--*** Unlock Key *** -->
 <ion-content [fullscreen]="true">
-  <div *ngIf="(show | async)">
-    <ion-card>
-      <ion-button (click)="signOn()"> Unlock </ion-button>
-    </ion-card>
-  </div>
-  <div *ngIf="(isSignedOn | async)">
-    <ion-card>
-      <ion-button (click)="signOff()"> Lock </ion-button>
-    </ion-card>
-  </div>
-
   <div class="section">
     <!--*** The Lab *** -->
     <ion-list>
@@ -139,9 +127,19 @@
   </div>
 
   <!--*** Player *** -->
-  <div *ngIf="(hasActiveBooking | async)">
-    <ion-button (click)="showModal()"
-      >{{activeBookingStart}} - {{activeBookingEnd}}</ion-button
-    >
+
+  <div class="smallPlayer" *ngIf="(hasActiveBooking | async)">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p>Today’s bookings</p>
+          <h4>{{activeBookingStart}} - {{activeBookingEnd}}</h4>
+        </ion-col>
+        <ion-col>
+          <p class="inline">FDM Printer</p>
+          <h4 class="inline timeLeft">01:15h left</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

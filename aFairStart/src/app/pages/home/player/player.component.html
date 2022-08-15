@@ -1,0 +1,69 @@
+<!-- *** OLD ***
+<ion-content [fullscreen]="true">
+  <div *ngIf="(show | async)">
+    <ion-card>
+      <ion-button (click)="signOn()"> Unlock </ion-button>
+    </ion-card>
+  </div>
+  <div *ngIf="(isSignedOn | async)">
+    <ion-card>
+      <ion-button (click)="signOff()"> Lock </ion-button>
+    </ion-card>
+  </div>
+-->
+
+<!--*** Head *** -->
+<ion-header class="ion-no-border" translucent="true">
+  <ion-toolbar>
+    <ion-buttons class="statusIcon" slot="end"
+      ><span class="material-icons-outlined"> add </span></ion-buttons
+    >
+    <h1>Bookings</h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="section">
+    <!--*** Equipment *** -->
+    <ion-list>
+      <ion-list-header>
+        <h3>Equipment</h3>
+      </ion-list-header>
+      <hr />
+
+      <div class="player">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img src="./../../../../assets/images/fdmPrinterIcon.png" />
+            </ion-col>
+            <ion-col>
+              <h3>FDM Printer</h3>
+              <h4>Device <span class="room">A32</span></h4>
+            </ion-col>
+            <ion-col>
+              <h4 class="time aright">01:15h left</h4>
+              <h4 class="aright">16:30 - 17:30</h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="dbutton">
+            <ion-col>
+              <a>
+                <ion-button class="button" fill="outline" expand="block">
+                  <h4>Help</h4>
+                </ion-button>
+              </a>
+            </ion-col>
+            <ion-col>
+              <a>
+                <ion-button class="button" expand="block">
+                  <h4>Finish Up</h4>
+                </ion-button>
+              </a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

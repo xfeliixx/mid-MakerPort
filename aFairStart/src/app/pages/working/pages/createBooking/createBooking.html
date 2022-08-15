@@ -135,14 +135,14 @@
         <div slot="content">
           <ion-list>
             <ion-radio-group [(ngModel)]="project">
-              <ion-item>
+              <ion-item lines="none">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Adipiscing lectus nulla tellus ullamcorper donec enim diam mi
-                  proin.
+                  Often your application can calculate an estimated time for the
+                  given task. If you can’t find an estimate, please check out
+                  our guide below.
                 </p>
               </ion-item>
-              <ion-item>
+              <ion-item lines="none">
                 <div class="calculate">
                   <h4 class="inline">How calculate an estimated time?</h4>
                   <span
@@ -152,18 +152,20 @@
                   </span>
                 </div>
               </ion-item>
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label><h2>h</h2></ion-label>
                 <ion-input
+                  id="firstInputNumber"
                   type="number"
                   value="timeEstimate"
                   max="47"
                   min="0"
                   placeholder="00"
+                  size="16"
                   [(ngModel)]="timeEstimateHour"
                 >
                 </ion-input>
-                <ion-label><h2>min</h2></ion-label>
+                <ion-label> <h2>min</h2></ion-label>
                 <ion-input
                   type="number"
                   value="timeEstimate"
@@ -173,8 +175,11 @@
                   [(ngModel)]="timeEstimateMinutes"
                 >
                 </ion-input>
+                <h6 id="cleaning">
+                  + 15 min for <br />
+                  cleaning
+                </h6>
               </ion-item>
-              <p>+ 15 min for cleaning</p>
             </ion-radio-group>
           </ion-list>
         </div>
