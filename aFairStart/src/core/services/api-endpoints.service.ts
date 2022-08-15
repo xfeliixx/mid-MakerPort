@@ -115,4 +115,8 @@ export class ApiEndpointsService {
   public putSignOff(id: number) {
     return this.createUrlWithPathVariables('bookings', [id]);
   }
+
+  public getLogin() {
+    return this.createUrl('users/login');
+  }
 }
