@@ -68,10 +68,13 @@ export class HomePage implements OnInit {
 
   //großer Player in Modal
   public showModal() {
-    console.log(this.activeBooking.done);
     if (this.activeBooking.done == false) {
       this.show = new BehaviorSubject<boolean>(true);
     }
+  }
+
+  public dismissModal() {
+    this.show = new BehaviorSubject<boolean>(false);
   }
 
   private getTimeLeft(end): number {

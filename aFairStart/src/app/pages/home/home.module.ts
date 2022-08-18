@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { CountdownModule } from 'ngx-countdown';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import { CountdownModule } from 'ngx-countdown';
     CommonModule,
     FormsModule,
     HomePageRoutingModule,
-    CountdownModule
+    CountdownModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, PlayerComponent]
 })
 export class HomePageModule { }

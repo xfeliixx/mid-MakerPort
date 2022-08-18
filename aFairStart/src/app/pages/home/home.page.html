@@ -112,8 +112,7 @@
     </ion-list>
   </div>
   <!--*** Player *** -->
-
-  <div class="smallPlayer" *ngIf="(hasActiveBooking | async)">
+  <div class="smallPlayer" (click)="showModal()" *ngIf="(hasActiveBooking | async)">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -125,10 +124,15 @@
           <h4 class="inline timeLeft">
             <countdown #cd [config]="countdownConfig"></countdown>h left
           </h4>
-
-
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
+
+  <!--Player Modal-->
+  <ion-modal #modal [isOpen]="show | async" (didDismiss)="dismissModal()">
+    <ng-template>
+      <app-player></app-player>
+    </ng-template>
+  </ion-modal>
 </ion-content>
