@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { formatISO } from 'date-fns';
 import { ImportBooking } from 'src/app/shared/classes/bookings';
@@ -19,12 +19,40 @@ export class CreateBookingComponent implements OnInit {
   timeEstimateMinutes: number;
   dateFromDatePicker: string;
 
+  private shortVal: string[] = ['what', 'who', 'how long', 'when'];
+  private longVal: string[] = ['For what are you booking?', 'Who are you working with?', 'How long are you planning to work?', 'When do you want to work?'];
+  private currVal: string[] = ['For what are you booking?', 'Who are you working with?', 'How long are you planning to work?', 'When do you want to work?'];
 
   constructor(private apiHttpService: ApiHttpService,
     private apiEndpointsService: ApiEndpointsService, private router: Router) { }
 
   ngOnInit() {
 
+  }
+
+  accordionGroupChange = (ev: any) => {
+    console.log(this.stringifyEvent(ev));
+
+    if (!ev.detail.value) {
+      let index = this.currVal.findIndex(ev.detail.value);
+      if (ev.detail.value.length > 10) {
+        this.currVal[index] = this.shortVal[index];
+      } else {
+        this.currVal[index] = this.longVal[index];
+      }
+    }
+  };
+
+  stringifyEvent(e) {
+    const obj = {};
+    for (let k in e) {
+      obj[k] = e[k];
+    }
+    return JSON.stringify(obj, (k, v) => {
+      if (v instanceof Node) return 'Node';
+      if (v instanceof Window) return 'Window';
+      return v;
+    }, ' ');
   }
 
 

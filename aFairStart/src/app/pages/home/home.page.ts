@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { CountdownComponent, CountdownConfig } from 'ngx-countdown';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Bookings } from 'src/app/shared/classes/bookings';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
 import { ApiHttpService } from 'src/core/services/api-http.service';
 
@@ -16,13 +16,20 @@ export class HomePage implements OnInit {
   activeBooking;
   activeBookingStart;
   activeBookingEnd;
+  timeLeft: number = 2;
+  countdownConfig: CountdownConfig = { leftTime: this.timeLeft, demand: false, format: 'hh:mm' };
+  @ViewChild('cd', { static: false }) private countdown: CountdownComponent;
+
+
   show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSignedOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private apiHttpService: ApiHttpService,
     private apiEndpointsService: ApiEndpointsService
-  ) {}
+  ) { }
+
+
 
   ngOnInit(): void {
     this.apiHttpService
@@ -39,7 +46,13 @@ export class HomePage implements OnInit {
           if (this.activeBooking == null || this.activeBooking == undefined) {
             this.hasActiveBooking = new BehaviorSubject<boolean>(false);
           } else if (this.activeBooking.done == false) {
+            this.timeLeft = this.getTimeLeft(this.activeBooking.scheduledEnd);
+            this.countdownConfig.leftTime = this.timeLeft;
             this.hasActiveBooking = new BehaviorSubject<boolean>(true);
+            setTimeout(() => {
+              console.log(this.timeLeft + "  " + this.countdownConfig.leftTime);
+              this.countdown.begin();
+            })
           }
         },
         (error) => {
@@ -53,11 +66,16 @@ export class HomePage implements OnInit {
     return result.split(':')[0] + ':' + result.split(':')[1];
   }
 
+  //großer Player in Modal
   public showModal() {
     console.log(this.activeBooking.done);
     if (this.activeBooking.done == false) {
       this.show = new BehaviorSubject<boolean>(true);
     }
+  }
+
+  private getTimeLeft(end): number {
+    return (new Date(end).getTime() - Date.now()) / 1000
   }
 
   public signOn() {

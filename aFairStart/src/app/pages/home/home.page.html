@@ -1,9 +1,7 @@
 <!--*** Head *** -->
 <ion-header class="ion-no-border" translucent="true">
   <ion-toolbar>
-    <ion-buttons class="statusIcon" slot="end"
-      ><span class="material-icons-outlined"> inbox </span></ion-buttons
-    >
+    <ion-buttons class="statusIcon" slot="end"><span class="material-icons-outlined"> inbox </span></ion-buttons>
     <h1>Hey Max</h1>
   </ion-toolbar>
 </ion-header>
@@ -113,7 +111,6 @@
       </ion-item>
     </ion-list>
   </div>
-
   <!--*** Player *** -->
 
   <div class="smallPlayer" *ngIf="(hasActiveBooking | async)">
@@ -125,7 +122,11 @@
         </ion-col>
         <ion-col>
           <p class="inline">FDM Printer</p>
-          <h4 class="inline timeLeft">01:15h left</h4>
+          <h4 class="inline timeLeft">
+            <countdown #cd [config]="countdownConfig"></countdown>h left
+          </h4>
+
+
         </ion-col>
       </ion-row>
     </ion-grid>

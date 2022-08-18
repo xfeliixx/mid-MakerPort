@@ -5,12 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { CountdownModule } from 'ngx-countdown';
 import { Constants } from 'src/core/config/constants';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginRoutingModule } from './pages/login/login-routing.module';
 import { LoginModule } from './pages/login/login.module';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +24,7 @@ import { LoginModule } from './pages/login/login.module';
     HttpClientModule,
     LoginRoutingModule,
     LoginModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule, CountdownModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
