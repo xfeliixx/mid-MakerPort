@@ -8,13 +8,14 @@ import { WorkingPage } from './working.page';
 import { WorkingPageRoutingModule } from './working-routing.module';
 import { CreateBookingComponent } from './pages/createBooking/createBooking.component';
 import { DeviceDetailComponent } from './pages/device-detail/device-detail.component';
+import { NgCalendarModule } from 'ionic2-calendar';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    WorkingPageRoutingModule
+    WorkingPageRoutingModule, NgCalendarModule
   ],
   declarations: [WorkingPage, CreateBookingComponent, DeviceDetailComponent],
   exports: []

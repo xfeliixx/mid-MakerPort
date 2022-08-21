@@ -119,4 +119,8 @@ export class ApiEndpointsService {
   public getLogin() {
     return this.createUrl('users/login');
   }
+
+  public getCalendarInfo() {
+    return this.createUrlWithQueryParameters('calendar', (qs: QueryStringParameters) => qs.push('type', "ThreeDimensionalPrinter"))
+  }
 }

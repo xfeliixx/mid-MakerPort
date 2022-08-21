@@ -50,7 +50,6 @@ export class HomePage implements OnInit {
             this.countdownConfig.leftTime = this.timeLeft;
             this.hasActiveBooking = new BehaviorSubject<boolean>(true);
             setTimeout(() => {
-              console.log(this.timeLeft + "  " + this.countdownConfig.leftTime);
               this.countdown.begin();
             })
           }

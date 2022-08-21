@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { NgCalendarModule } from 'ionic2-calendar';
 import { CountdownModule } from 'ngx-countdown';
 import { Constants } from 'src/core/config/constants';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
@@ -24,7 +25,7 @@ import { LoginModule } from './pages/login/login.module';
     HttpClientModule,
     LoginRoutingModule,
     LoginModule,
-    FormsModule, ReactiveFormsModule, CountdownModule
+    FormsModule, ReactiveFormsModule, CountdownModule, NgCalendarModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

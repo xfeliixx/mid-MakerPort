@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { formatISO } from 'date-fns';
-import { ImportBooking } from 'src/app/shared/classes/bookings';
+import { Bookings, ImportBooking } from 'src/app/shared/classes/bookings';
 import { ApiEndpointsService } from 'src/core/services/api-endpoints.service';
 import { ApiHttpService } from 'src/core/services/api-http.service';
 
@@ -14,34 +14,21 @@ export class CreateBookingComponent implements OnInit {
 
   project: string;
   //TODO Beispielname ändern 
-  teamMates: string[] = new Array("Beispielname (Me)");
+  teamMates: string[] = new Array("Max Muster (Me)");
   timeEstimateHour: number;
   timeEstimateMinutes: number;
   dateFromDatePicker: string;
 
-  private shortVal: string[] = ['what', 'who', 'how long', 'when'];
-  private longVal: string[] = ['For what are you booking?', 'Who are you working with?', 'How long are you planning to work?', 'When do you want to work?'];
-  private currVal: string[] = ['For what are you booking?', 'Who are you working with?', 'How long are you planning to work?', 'When do you want to work?'];
-
+  upcomingBookings: Bookings[] = [];
+  dateMin;
+  teamMateInput: boolean = false;
+  newTeamMate: string;
   constructor(private apiHttpService: ApiHttpService,
-    private apiEndpointsService: ApiEndpointsService, private router: Router) { }
+    private apiEndpointsService: ApiEndpointsService, private router: Router) { this.getCalendarInfo() }
 
   ngOnInit() {
-
+    this.dateMin = new Date(Date.now()).toISOString();
   }
-
-  accordionGroupChange = (ev: any) => {
-    console.log(this.stringifyEvent(ev));
-
-    if (!ev.detail.value) {
-      let index = this.currVal.findIndex(ev.detail.value);
-      if (ev.detail.value.length > 10) {
-        this.currVal[index] = this.shortVal[index];
-      } else {
-        this.currVal[index] = this.longVal[index];
-      }
-    }
-  };
 
   stringifyEvent(e) {
     const obj = {};
@@ -57,15 +44,25 @@ export class CreateBookingComponent implements OnInit {
 
 
   public addTeamMate() {
-    //TODO
-    console.log('addTeamMate');
+    this.teamMateInput = true;
+  }
+
+  public saveTeamMate() {
+    this.teamMates.push(this.newTeamMate);
+    this.newTeamMate = "";
+    this.teamMateInput = false;
+  }
+
+  public cancel() {
+    this.newTeamMate = "";
+    this.teamMateInput = false;
   }
 
   public createBooking() {
     if (this.teamMates.length > 0 && this.timeEstimateHour != null && this.timeEstimateMinutes != null && this.dateFromDatePicker != null) {
       const date = this.convertDateFromDatePickerToJavaLocalDate(this.dateFromDatePicker);
       const importBooking = new ImportBooking(0, date, this.convertEstimateTimeToMinutes(this.timeEstimateHour, this.timeEstimateMinutes));
-      console.log(JSON.stringify(importBooking));
+
       this.apiHttpService
         .post(this.apiEndpointsService.postBooking(), JSON.stringify(importBooking))
         .subscribe(
@@ -76,7 +73,20 @@ export class CreateBookingComponent implements OnInit {
             if (error.status == '201') { this.router.navigate(['/working']); }
           });
     }
+  }
 
+  private getCalendarInfo() {
+    this.apiHttpService
+      .get(this.apiEndpointsService.getCalendarInfo())
+      .subscribe(
+        (data) => {
+          let json = JSON.parse(JSON.stringify(data));
+          for (const obj of json) {
+            if (obj) {
+              this.upcomingBookings.push(obj);
+            }
+          }
+        });
   }
 
   private convertEstimateTimeToMinutes(hours: number, minutes: number): number {
@@ -89,5 +99,6 @@ export class CreateBookingComponent implements OnInit {
     console.log(date + "  " + formatISO(new Date(date)));
     return date;
   }
+
 
 }

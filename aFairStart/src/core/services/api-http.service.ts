@@ -29,7 +29,6 @@ export class ApiHttpService {
 
   private generateHeader(): HttpHeaders {
     let auth = localStorage.getItem('Authorization');
-    console.log(auth);
     if (auth != null) {
       return new HttpHeaders().set('Authorization', "Basic " + auth).set('Content-Type', 'application/json');
     }
