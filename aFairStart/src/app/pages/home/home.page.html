@@ -132,7 +132,8 @@
   <!--Player Modal-->
   <ion-modal #modal [isOpen]="show | async" (didDismiss)="dismissModal()">
     <ng-template>
-      <app-player></app-player>
+      <app-player [activeBookingStart]="activeBookingStart" [activeBookingEnd]="activeBookingEnd"
+        [leftTime]="getTimeLeft(this.activeBooking.scheduledEnd)"></app-player>
     </ng-template>
   </ion-modal>
 </ion-content>

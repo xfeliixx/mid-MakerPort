@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CountdownConfig } from 'ngx-countdown';
 
 @Component({
   selector: 'app-player',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerComponent implements OnInit {
 
+  @Input() activeBookingStart;
+  @Input() activeBookingEnd;
+  @Input() leftTime;
+  countdownConfig: CountdownConfig;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.countdownConfig = { leftTime: this.leftTime, demand: false, format: 'hh:mm' };
+  }
 
 }
