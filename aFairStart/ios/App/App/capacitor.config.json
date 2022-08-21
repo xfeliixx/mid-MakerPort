@@ -1,0 +1,6 @@
+{
+	"appId": "com.felixmedia.makerPort",
+	"appName": "MakerPort",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

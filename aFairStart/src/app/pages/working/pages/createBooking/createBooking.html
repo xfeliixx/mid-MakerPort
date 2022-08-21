@@ -28,7 +28,10 @@
 
     <!-- Where -->
 
-    <ion-accordion-group (ionChange)="accordionGroupChange($event)" class="DetailSelector">
+    <ion-accordion-group
+      (ionChange)="accordionGroupChange($event)"
+      class="DetailSelector"
+    >
       <ion-accordion value="first">
         <ion-item slot="header" lines="none">
           <ion-label>
@@ -37,7 +40,8 @@
             <h4 class="selected">{{project}}</h4>
           </ion-label>
           <ion-label slot="end">
-            <span class="material-icons-outlined ion-accordion-toggle-icon">expand_more
+            <span class="material-icons-outlined ion-accordion-toggle-icon"
+              >expand_more
             </span>
           </ion-label>
         </ion-item>
@@ -68,7 +72,10 @@
 
     <!-- Who -->
 
-    <ion-accordion-group class="DetailSelector" (ionChange)="accordionGroupChange($event)">
+    <ion-accordion-group
+      class="DetailSelector"
+      (ionChange)="accordionGroupChange($event)"
+    >
       <ion-accordion value="second">
         <ion-item slot="header" lines="none">
           <ion-label>
@@ -78,7 +85,8 @@
             <!-- teamMate.count needs to be implenmented -->
           </ion-label>
           <ion-label slot="end">
-            <span class="material-icons-outlined ion-accordion-toggle-icon">expand_more
+            <span class="material-icons-outlined ion-accordion-toggle-icon"
+              >expand_more
             </span>
           </ion-label>
         </ion-item>
@@ -95,13 +103,7 @@
               </ion-item>
               <ion-item>
                 <div class="addTeamMate" (click)="addTeamMate()">
-                  <h4 class="inline">
-                    <span class="
-                        inline
-                        material-icons-outlined
-                        ion-accordion-toggle-icon
-                      ">add </span>Add team mate
-                  </h4>
+                  <h4 class="inline">Add team mate</h4>
                 </div>
               </ion-item>
             </ion-radio-group>
@@ -112,7 +114,10 @@
 
     <!-- How Long -->
 
-    <ion-accordion-group class="DetailSelector" (ionChange)="accordionGroupChange($event)">
+    <ion-accordion-group
+      class="DetailSelector"
+      (ionChange)="accordionGroupChange($event)"
+    >
       <ion-accordion value="third">
         <ion-item slot="header" lines="none">
           <ion-label>
@@ -122,7 +127,8 @@
             <h4>How long are you planning to work?</h4>
           </ion-label>
           <ion-label slot="end">
-            <span class="material-icons-outlined ion-accordion-toggle-icon">expand_more
+            <span class="material-icons-outlined ion-accordion-toggle-icon"
+              >expand_more
             </span>
           </ion-label>
         </ion-item>
@@ -139,22 +145,34 @@
               <ion-item lines="none">
                 <div class="calculate">
                   <h4 class="inline">How calculate an estimated time?</h4>
-                  <span id="callMode" class="material-icons-outlined ion-accordion-toggle-icon">call_made
-                  </span>
                 </div>
               </ion-item>
               <ion-item lines="none">
                 <ion-label>
                   <h2>h</h2>
                 </ion-label>
-                <ion-input id="firstInputNumber" type="number" value="timeEstimate" max="47" min="0" placeholder="00"
-                  size="16" [(ngModel)]="timeEstimateHour">
+                <ion-input
+                  id="firstInputNumber"
+                  type="number"
+                  value="timeEstimate"
+                  max="47"
+                  min="0"
+                  placeholder="00"
+                  size="16"
+                  [(ngModel)]="timeEstimateHour"
+                >
                 </ion-input>
                 <ion-label>
                   <h2>min</h2>
                 </ion-label>
-                <ion-input type="number" value="timeEstimate" max="59" min="0" placeholder="00"
-                  [(ngModel)]="timeEstimateMinutes">
+                <ion-input
+                  type="number"
+                  value="timeEstimate"
+                  max="59"
+                  min="0"
+                  placeholder="00"
+                  [(ngModel)]="timeEstimateMinutes"
+                >
                 </ion-input>
                 <h6 id="cleaning">
                   + 15 min for <br />
@@ -169,7 +187,10 @@
 
     <!-- When -->
 
-    <ion-accordion-group class="DetailSelector" (ionChange)="accordionGroupChange($event)">
+    <ion-accordion-group
+      class="DetailSelector"
+      (ionChange)="accordionGroupChange($event)"
+    >
       <ion-accordion value="forth">
         <ion-item slot="header" lines="none">
           <ion-label>
@@ -179,19 +200,24 @@
             <h4>When do you want to work?</h4>
           </ion-label>
           <ion-label slot="end">
-            <span class="material-icons-outlined ion-accordion-toggle-icon">expand_more
+            <span class="material-icons-outlined ion-accordion-toggle-icon"
+              >expand_more
             </span>
           </ion-label>
         </ion-item>
         <ion-item slot="content">
-          <ion-datetime color="primary" pickerFormat="YYYY MM D HH:mm" [(ngModel)]=" dateFromDatePicker"></ion-datetime>
+          <ion-datetime
+            color="primary"
+            pickerFormat="YYYY MM D HH:mm"
+            [(ngModel)]=" dateFromDatePicker"
+          ></ion-datetime>
         </ion-item>
       </ion-accordion>
     </ion-accordion-group>
 
     <!-- Book Bar -->
 
-    <div class="h4">
+    <div class="bookBar">
       <ion-button class="button" expand="block" (click)="createBooking()">
         <h4>Book</h4>
       </ion-button>
@@ -202,5 +228,4 @@
       </h6>
     </div>
   </div>
-
 </ion-content>

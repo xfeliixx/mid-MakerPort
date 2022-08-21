@@ -179,12 +179,17 @@ ion-accordion {
 .arc {
   padding: 0 !important;
 }
-// Book Bar
-.bottomBar {
+// Button Bars
+.bookBar {
+  margin-top: 16px;
+}
+.deviceDetailBar {
   h6 {
     margin: 0 16px 16px 16px;
   }
-  //Shadow fehlt
+}
+.bottomLoginBar {
+  margin: 32px 0 16px 0;
 }
 
 //Detail Selector
@@ -289,6 +294,8 @@ ion-accordion {
   border-radius: 3px;
 }
 
+// Misc //
+
 #frontIcon {
   margin-right: 10px;
 }
@@ -298,6 +305,12 @@ ion-accordion {
 }
 #cleaning {
   line-height: 12px;
+}
+.loginInfo {
+  margin: 16px 0 16px 0;
+  padding: 16px;
+  border-radius: 5px;
+  background: var(--ion-color-backcomponents);
 }
 
 // *** FontFamily + Color ***

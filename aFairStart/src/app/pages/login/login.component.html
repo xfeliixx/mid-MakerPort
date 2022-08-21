@@ -1,5 +1,46 @@
-<div>
-  <ion-input [(ngModel)]="usern" placeholder="username"></ion-input>
-  <ion-input [(ngModel)]="passw" placeholder="password"></ion-input>
-  <ion-button (click)="login()">LOGIN</ion-button>
-</div>
+<!--*** Head *** -->
+<ion-header class="ion-no-border" translucent="true">
+  <ion-toolbar>
+    <ion-title>
+      <h3>Log in</h3>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="section">
+    <!-- Info Card -->
+    <div class="loginInfo">
+      <h3>What are my log in credentials?</h3>
+      <p>
+        Because the Maker Port is part of the Hochschule Osnabrück, you can
+        simply log in with your OSCA credentials.
+      </p>
+    </div>
+
+    <!-- Input -->
+
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">User name</ion-label>
+        <ion-input [(ngModel)]="usern" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input [(ngModel)]="passw" placeholder=""></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <!-- Login Bar -->
+    <div class="bottomLoginBar">
+      <ion-button class="button" expand="block" (click)="login()">
+        <h4>Log in</h4>
+      </ion-button>
+
+      <h6>
+        By logging in, you agree to our terms of service and our privacy policy.
+        You can find both of them <span class="link">here.</span>
+      </h6>
+    </div>
+  </div>
+</ion-content>
